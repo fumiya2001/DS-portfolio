@@ -5,6 +5,24 @@ This project explores various Natural Language Processing (NLP) techniques to cl
 ##  Project Overview
 The goal is to demonstrate a full machine learning pipeline, including feature extraction from text, dimensionality reduction, and advanced ensemble modeling with Transformer architectures.
 
+##  Execution Environment
+
+> **Note**  
+> Only the final notebook (`04_Model_Ensemble.ipynb`) requires **Google Colab with GPU support**  
+> due to the computational cost of training multiple Transformer models  
+> using 5-fold cross-validation ensemble averaging.
+>
+> The other notebooks can be executed on a local machine.
+
+For reproducibility, the final model training notebook can be opened directly in Google Colab.
+
+### Run on Google Colab
+
+- **Ensemble Model (GPU required)**  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+  https://colab.research.google.com/github/<fumiya2001>/<DS-portfolio>/blob/main/04_Model_Ensemble.ipynb
+  )
+
 ## Repository Structure
 
 | File | Description | Key Tech Stack |
