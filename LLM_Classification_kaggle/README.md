@@ -17,11 +17,12 @@ The goal is to demonstrate a full machine learning pipeline, including feature e
 For reproducibility, the final model training notebook can be opened directly in Google Colab.
 
 ### Run on Google Colab
-
+ 
 - **Ensemble Model (GPU required)**  
   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
-  https://colab.research.google.com/github/<fumiya2001>/<DS-portfolio>/blob/main/04_Model_Ensemble.ipynb
+  https://colab.research.google.com/github/fumiya2001/DS-portfolio/blob/main/LLM_Classification_kaggle/04_Model_Ensemble.ipynb
   )
+
 
 ## Repository Structure
 
