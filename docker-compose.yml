@@ -5,5 +5,4 @@ services:
       - "8888:8888"
     volumes:
       - .:/app
-    # コンテナが勝手に終了しないようにするための設定
     tty: true
