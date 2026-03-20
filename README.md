@@ -23,6 +23,13 @@
   
 詳細: ./LASSO_from_scratch
 
+### SQL
+- 内容: SQLを用いた売上分析・カテゴリ分析・遅延分析  
+- 手法：JOIN、GROUP BY、CTE、ウィンドウ関数を使用したデータ分析  
+
+
+詳細: ./SQL
+
 ## Skills
 - Python：pandas, scikit-learn, PyTorch, transformers
 - R：統計・アルゴリズム実装
