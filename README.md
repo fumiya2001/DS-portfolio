@@ -30,6 +30,13 @@
 
 詳細: ./SQL
 
+### Simple RAG System
+- 内容：PDFをもとに質問応答を行うRAG（Retrieval-Augmented Generation）システムの実装  
+- 手法：Sentence Transformersによるembedding、pgvectorによるベクトル検索、Cross-Encoderによるreranking、FastAPIによるAPI化、ローカルLLMによる回答生成  
+  
+
+詳細: ./simple_RAG
+
 ## Skills
 - Python：pandas, scikit-learn, PyTorch, transformers
 - R：統計・アルゴリズム実装
