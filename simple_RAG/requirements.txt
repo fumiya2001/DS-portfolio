@@ -1,7 +1,9 @@
 fastapi
 uvicorn
 psycopg2-binary
-sentence-transformers
 PyPDF2
-langchain-text-splitters
 numpy
+torch
+transformers
+sentence-transformers
+langchain-text-splitters

@@ -71,12 +71,27 @@ def save_to_db(chunks: list[str], embeddings) -> None:
                 )
         conn.commit()
 
+def reset_table():
+    with psycopg2.connect(**DB_CONFIG) as conn:
+        with conn.cursor() as cur:
+            cur.execute("DROP TABLE IF EXISTS embeddings;")
+            cur.execute("""
+                CREATE TABLE embeddings (
+                    id SERIAL PRIMARY KEY,
+                    chunk TEXT NOT NULL,
+                    embedding vector(384) NOT NULL
+                );
+            """)
+        conn.commit()
+
+
 def main() -> None:
     text = extract_text_from_pdf(PDF_FILE_PATH)
     cleaned_text = clean_text(text)
     chunks = split_text(cleaned_text)
     embeddings = create_embeddings(chunks)
 
+    reset_table()
     create_table_if_not_exists()
     save_to_db(chunks, embeddings)
 
