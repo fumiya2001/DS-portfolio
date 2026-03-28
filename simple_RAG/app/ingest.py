@@ -1,18 +1,23 @@
+import os
 import re
 import PyPDF2
 import psycopg2
 
+from pathlib import Path
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 PDF_FILE_PATH = './data/attention_is_all_you_need_paper.pdf'
 
 DB_CONFIG = {
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "simple_rag",
-    "user": "simple_rag_user",
-    "password": "simple_rag_user_pw",
+    "host": os.getenv("DB_HOST", "localhost"),
+    "port": int(os.getenv("DB_PORT", 5432)),
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
 }
 
 MODEL_NAME = 'all-MiniLM-L6-v2'
@@ -74,6 +79,7 @@ def save_to_db(chunks: list[str], embeddings) -> None:
 def reset_table():
     with psycopg2.connect(**DB_CONFIG) as conn:
         with conn.cursor() as cur:
+            cur.execute("CREATE EXTENSION IF NOT EXISTS vector;")
             cur.execute("DROP TABLE IF EXISTS embeddings;")
             cur.execute("""
                 CREATE TABLE embeddings (

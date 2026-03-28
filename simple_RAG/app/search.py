@@ -1,12 +1,18 @@
+import os
 import psycopg2
+
+from pathlib import Path
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
 DB_CONFIG = {
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "simple_rag",
-    "user": "simple_rag_user",
-    "password": "simple_rag_user_pw",
+    "host": os.getenv("DB_HOST", "localhost"),
+    "port": int(os.getenv("DB_PORT", 5432)),
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
 }
 MODEL_NAME = "all-MiniLM-L6-v2"
 RERANK_MODEL_NAME = "cross-encoder/ms-marco-MiniLM-L-6-v2"
