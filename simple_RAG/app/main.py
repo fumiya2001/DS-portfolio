@@ -15,7 +15,15 @@ def ask(req: QueryRequest):
     contexts = [res["chunk"] for res in reranked_result]
     answer = generate_answer(req.query, contexts)
 
+    sources = [
+        {
+            "chunk": res["chunk"],
+            "score": res["similarity"]
+        }
+        for res in reranked_result
+    ]
     return {
         "query": req.query,
-        "answer": answer
+        "answer": answer,
+        "sources": sources
     }

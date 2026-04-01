@@ -21,9 +21,14 @@ if prompt := st.chat_input("Ask a question"):
 
     response = requests.post(API_URL, json={"query": prompt})
     answer = response.json().get("answer")
+    sources = response.json().get("sources")
 
     st.session_state.messages.append({"role":"assistant", "content":answer})
 
     with st.chat_message("assistant"):
         st.markdown(answer)
    
+    with st.expander("Sources"):
+        for source in sources:
+            st.markdown(f"**Score**: {source['score']:.4f}")
+            st.markdown(f"**Chunk**: {source['chunk'][:200]}...")

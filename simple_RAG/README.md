@@ -28,6 +28,7 @@ simple_RAG/
 |   |-- search.py # retrieval + reranking
 |   |-- generate.py # LLM answer generation
 |   |-- main.py # FastAPI API
+|   |-- ui.py # UI
 |
 |--data/
 |   |-- attention_is_all_you_need_paper.pdf
@@ -57,6 +58,15 @@ python app/ingest.py
 ``` bash
 uvicorn app.main:app --reload
 ```
+
+5) Run Streamlit UI
+```bash
+streamlit run app/ui.py
+```
+
+6) Access the application
+UI: http://localhost:8503
+
 
 ## API usage
 
