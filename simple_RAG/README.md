@@ -67,7 +67,7 @@ streamlit run app/ui.py
 6) Access the application
 UI: http://localhost:8503
 
-
+:
 ## API usage
 
 Example Request
@@ -91,5 +91,5 @@ Example Response
 ## Future Work
 - Support user-uploaded documents
 - Improve prompt design for better answer quality
-- Add a simple User Interface (UI)
+- Add a simple User Interface (UI) (Completed!)
 - Containerize the Python application using Docker for full reproducibility
