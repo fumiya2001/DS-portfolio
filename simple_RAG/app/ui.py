@@ -5,6 +5,13 @@ API_URL = "http://localhost:8000/ask"
 
 st.title("Simple RAG Demo")
 
+file = st.file_uploader("Choose a file", type=["pdf"])
+
+if st.button("submit"):
+    if file is not None:
+        st.success("File uploaded successfully!")
+    else:
+        st.write("No file uploaded")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
